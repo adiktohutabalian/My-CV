@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animasi Menarik</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Custom CSS untuk animasi yang tidak bisa dilakukan dengan Tailwind */
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+        
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.05);
+                opacity: 0.8;
+            }
+        }
+        
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        
+        @keyframes slideIn {
+            from {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        .float-animation {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        .pulse-animation {
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        .rotate-animation {
+            animation: rotate 10s linear infinite;
+        }
+        
+        .slide-in-animation {
+            animation: slideIn 1s ease-out forwards;
+        }
+        
+        .fade-in-animation {
+            animation: fadeIn 1.5s ease-out forwards;
+        }
+        
+        .parallax {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        
+        .card-hover-effect {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover-effect:hover {
+            transform: translateY(-10px) rotate(2deg);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .text-gradient {
+            background: linear-gradient(45deg, #3b82f6, #8b5cf6, #ec4899);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .glow-on-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .glow-on-hover:hover {
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.7);
+        }
+    </style>
+</head>
+<body class="bg-gray-100 font-sans">
+    <!-- Navbar dengan animasi slide-in -->
+    <nav class="bg-white shadow-lg slide-in-animation">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex justify-between">
+                <div class="flex space-x-7">
+                    <div>
+                        <a href="#" class="flex items-center py-4 px-2">
+                            <i class="fas fa-magic text-purple-600 text-2xl mr-2"></i>
+                            <span class="font-semibold text-gray-900 text-lg">Animagic</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="hidden md:flex items-center space-x-1">
+                    <a href="#" class="py-4 px-2 text-purple-600 border-b-4 border-purple-600 font-medium">Home</a>
+                    <a href="#" class="py-4 px-2 text-gray-500 font-medium hover:text-purple-600 transition duration-300">Features</a>
+                    <a href="#" class="py-4 px-2 text-gray-500 font-medium hover:text-purple-600 transition duration-300">Gallery</a>
+                    <a href="#" class="py-4 px-2 text-gray-500 font-medium hover:text-purple-600 transition duration-300">About</a>
+                    <a href="#" class="py-4 px-2 text-gray-500 font-medium hover:text-purple-600 transition duration-300">Contact</a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button class="outline-none mobile-menu-button">
+                        <svg class="w-6 h-6 text-gray-500 hover:text-purple-600" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+                            <path d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section dengan animasi floating dan parallax -->
+    <section class="parallax bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 py-32 relative overflow-hidden">
+        <div class="absolute inset-0 bg-black opacity-30"></div>
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 fade-in-animation">
+                    <h1 class="text-4xl md:text-6xl font-bold text-white mb-6">
+                        <span class="text-gradient">Animasi</span> yang Menakjubkan
+                    </h1>
+                    <p class="text-xl text-white mb-8">Temukan dunia penuh dengan animasi yang memukau dan interaktif yang akan membuat website Anda hidup.</p>
+                    <div class="flex space-x-4">
+                        <button class="bg-white text-purple-600 px-6 py-3 rounded-full font-semibold hover:bg-purple-100 transition duration-300 glow-on-hover pulse-animation">
+                            Mulai Sekarang
+                        </button>
+                        <button class="border-2 border-white text-white px-6 py-3 rounded-full font-semibold hover:bg-white hover:text-purple-600 transition duration-300">
+                            Pelajari Lebih
+                        </button>
+                    </div>
+                </div>
+                <div class="md:w-1/2 mt-10 md:mt-0 flex justify-center">
+                    <div class="relative float-animation">
+                        <div class="w-64 h-64 bg-white bg-opacity-20 rounded-full absolute -top-10 -left-10"></div>
+                        <div class="w-64 h-64 bg-white bg-opacity-10 rounded-full absolute -bottom-10 -right-10"></div>
+                        <img src="https://cdn.pixabay.com/photo/2021/08/04/13/21/software-developer-6521720_960_720.png" alt="Hero Image" class="w-full max-w-md relative z-10">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fitur dengan animasi hover dan fade-in -->
+    <section class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in-animation">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Fitur <span class="text-purple-600">Keren</span> Kami</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Kami menyediakan berbagai macam animasi yang dapat meningkatkan pengalaman pengguna di website Anda.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-gray-50 p-8 rounded-xl card-hover-effect fade-in-animation" style="animation-delay: 0.2s;">
+                    <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-spinner text-purple-600 text-2xl rotate-animation"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Animasi Halus</h3>
+                    <p class="text-gray-600">Animasi yang halus dan natural untuk memberikan pengalaman yang menyenangkan bagi pengguna.</p>
+                </div>
+                
+                <div class="bg-gray-50 p-8 rounded-xl card-hover-effect fade-in-animation" style="animation-delay: 0.4s;">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-mouse-pointer text-blue-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Interaktif</h3>
+                    <p class="text-gray-600">Respon terhadap interaksi pengguna dengan animasi yang menarik dan informatif.</p>
+                </div>
+                
+                <div class="bg-gray-50 p-8 rounded-xl card-hover-effect fade-in-animation" style="animation-delay: 0.6s;">
+                    <div class="w-16 h-16 bg-pink-100 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-mobile-alt text-pink-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Responsif</h3>
+                    <p class="text-gray-600">Animasi yang beradaptasi dengan sempurna di semua perangkat dan ukuran layar.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery dengan animasi hover dan scroll -->
+    <section class="py-20 bg-gray-100">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Gallery <span class="text-blue-600">Animasi</span></h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Lihat berbagai jenis animasi yang bisa Anda terapkan di website Anda.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="relative group overflow-hidden rounded-xl shadow-lg card-hover-effect">
+                    <img src="https://cdn.pixabay.com/photo/2020/04/08/16/32/keyboard-5017973_960_720.jpg" alt="Animation 1" class="w-full h-64 object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+                        <button class="bg-white text-purple-600 px-6 py-2 rounded-full font-semibold transform translate-y-4 group-hover:translate-y-0 transition duration-300">
+                            Lihat Detail
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="relative group overflow-hidden rounded-xl shadow-lg card-hover-effect">
+                    <img src="https://cdn.pixabay.com/photo/2017/01/29/21/16/night-2019427_960_720.jpg" alt="Animation 2" class="w-full h-64 object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+                        <button class="bg-white text-blue-600 px-6 py-2 rounded-full font-semibold transform translate-y-4 group-hover:translate-y-0 transition duration-300">
+                            Lihat Detail
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="relative group overflow-hidden rounded-xl shadow-lg card-hover-effect">
+                    <img src="https://cdn.pixabay.com/photo/2016/11/29/08/41/apple-1868496_960_720.jpg" alt="Animation 3" class="w-full h-64 object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+                        <button class="bg-white text-pink-600 px-6 py-2 rounded-full font-semibold transform translate-y-4 group-hover:translate-y-0 transition duration-300">
+                            Lihat Detail
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="relative group overflow-hidden rounded-xl shadow-lg card-hover-effect">
+                    <img src="https://cdn.pixabay.com/photo/2016/11/22/19/08/hangers-1850082_960_720.jpg" alt="Animation 4" class="w-full h-64 object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+                        <button class="bg-white text-green-600 px-6 py-2 rounded-full font-semibold transform translate-y-4 group-hover:translate-y-0 transition duration-300">
+                            Lihat Detail
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="relative group overflow-hidden rounded-xl shadow-lg card-hover-effect">
+                    <img src="https://cdn.pixabay.com/photo/2016/11/23/14/45/coding-1853305_960_720.jpg" alt="Animation 5" class="w-full h-64 object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+                        <button class="bg-white text-yellow-600 px-6 py-2 rounded-full font-semibold transform translate-y-4 group-hover:translate-y-0 transition duration-300">
+                            Lihat Detail
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="relative group overflow-hidden rounded-xl shadow-lg card-hover-effect">
+                    <img src="https://cdn.pixabay.com/photo/2017/03/29/15/18/tianjin-2185510_960_720.jpg" alt="Animation 6" class="w-full h-64 object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+                        <button class="bg-white text-red-600 px-6 py-2 rounded-full font-semibold transform translate-y-4 group-hover:translate-y-0 transition duration-300">
+                            Lihat Detail
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistik dengan animasi counter -->
+    <section class="py-20 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div class="p-6 fade-in-animation" style="animation-delay: 0.2s;">
+                    <div class="text-4xl md:text-5xl font-bold mb-2 counter" data-target="1200">0</div>
+                    <div class="text-xl">Proyek Selesai</div>
+                </div>
+                
+                <div class="p-6 fade-in-animation" style="animation-delay: 0.4s;">
+                    <div class="text-4xl md:text-5xl font-bold mb-2 counter" data-target="850">0</div>
+                    <div class="text-xl">Klien Bahagia</div>
+                </div>
+                
+                <div class="p-6 fade-in-animation" style="animation-delay: 0.6s;">
+                    <div class="text-4xl md:text-5xl font-bold mb-2 counter" data-target="50">0</div>
+                    <div class="text-xl">Jenis Animasi</div>
+                </div>
+                
+                <div class="p-6 fade-in-animation" style="animation-delay: 0.8s;">
+                    <div class="text-4xl md:text-5xl font-bold mb-2 counter" data-target="24">0</div>
+                    <div class="text-xl">Penghargaan</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonial dengan animasi slider -->
+    <section class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Apa Kata <span class="text-pink-600">Mereka</span></h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Testimonial dari klien yang puas dengan layanan animasi kami.</p>
+            </div>
+            
+            <div class="relative overflow-hidden">
+                <div class="flex transition-transform duration-500 ease-in-out" id="testimonial-slider">
+                    <div class="w-full flex-shrink-0 px-4">
+                        <div class="bg-gray-50 p-8 rounded-xl max-w-3xl mx-auto">
+                            <div class="flex items-center mb-6">
+                                <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Testimonial 1" class="w-16 h-16 rounded-full object-cover mr-4">
+                                <div>
+                                    <h4 class="text-lg font-semibold">Sarah Johnson</h4>
+                                    <p class="text-gray-600">CEO TechSolutions</p>
+                                </div>
+                            </div>
+                            <p class="text-gray-700 italic">"Animasi yang disediakan benar-benar membawa website kami ke level berikutnya. Pengunjung kami sangat menyukai pengalaman yang lebih interaktif dan menarik."</p>
+                            <div class="mt-4 flex">
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="w-full flex-shrink-0 px-4">
+                        <div class="bg-gray-50 p-8 rounded-xl max-w-3xl mx-auto">
+                            <div class="flex items-center mb-6">
+                                <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Testimonial 2" class="w-16 h-16 rounded-full object-cover mr-4">
+                                <div>
+                                    <h4 class="text-lg font-semibold">Michael Chen</h4>
+                                    <p class="text-gray-600">Direktur Digital Agency</p>
+                                </div>
+                            </div>
+                            <p class="text-gray-700 italic">"Kualitas animasi yang diberikan sangat profesional dan tepat waktu. Tim mereka sangat responsif terhadap kebutuhan kami dan memberikan solusi kreatif."</p>
+                            <div class="mt-4 flex">
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star-half-alt text-yellow-400"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="w-full flex-shrink-0 px-4">
+                        <div class="bg-gray-50 p-8 rounded-xl max-w-3xl mx-auto">
+                            <div class="flex items-center mb-6">
+                                <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Testimonial 3" class="w-16 h-16 rounded-full object-cover mr-4">
+                                <div>
+                                    <h4 class="text-lg font-semibold">Emily Rodriguez</h4>
+                                    <p class="text-gray-600">Manajer Pemasaran</p>
+                                </div>
+                            </div>
+                            <p class="text-gray-700 italic">"Sejak kami menambahkan animasi ke website kami, tingkat engagement meningkat signifikan. Pengunjung menghabiskan lebih banyak waktu di situs kami."</p>
+                            <div class="mt-4 flex">
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <button id="prev-testimonial" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-md ml-4 hover:bg-gray-100 transition duration-300">
+                    <i class="fas fa-chevron-left text-gray-700"></i>
+                </button>
+                
+                <button id="next-testimonial" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-md mr-4 hover:bg-gray-100 transition duration-300">
+                    <i class="fas fa-chevron-right text-gray-700"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA dengan animasi pulse -->
+    <section class="py-20 bg-gray-900 text-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">Siap Membuat Website Anda Lebih <span class="text-purple-400">Hidup</span>?</h2>
+            <p class="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">Hubungi kami sekarang dan dapatkan konsultasi gratis tentang animasi apa yang cocok untuk website Anda.</p>
+            <button class="bg-purple-600 hover:bg-purple-700 text-white px-8 py-4 rounded-full font-semibold text-lg transition duration-300 pulse-animation glow-on-hover">
+                <i class="fas fa-paper-plane mr-2"></i> Kirim Pesan
+            </button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-semibold mb-4 flex items-center">
+                        <i class="fas fa-magic text-purple-400 mr-2"></i> Animagic
+                    </h3>
+                    <p class="text-gray-400">Membawa website Anda ke kehidupan dengan animasi yang memukau dan interaktif.</p>
+                    <div class="flex space-x-4 mt-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Tautan Cepat</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Beranda</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Tentang Kami</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Layanan</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Portofolio</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Blog</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Layanan</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Animasi Web</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">UI/UX Design</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Pengembangan Web</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Branding</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">SEO</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Kontak</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-2 text-purple-400"></i>
+                            <span>Jl. Animasi No. 123, Kota Digital, Indonesia</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone-alt mr-2 text-purple-400"></i>
+                            <span>+62 123 4567 890</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-2 text-purple-400"></i>
+                            <span>info@animagic.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-12 pt-8 text-center text-gray-400">
+                <p>&copy; 2023 Animagic. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating action button -->
+    <div class="fixed bottom-8 right-8">
+        <button id="back-to-top" class="bg-purple-600 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg hover:bg-purple-700 transition duration-300 opacity-0 invisible transform translate-y-4 transition-all duration-300">
+            <i class="fas fa-arrow-up"></i>
+        </button>
+    </div>
+
+    <!-- Floating chat button -->
+    <div class="fixed bottom-8 left-8">
+        <button class="bg-blue-500 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:bg-blue-600 transition duration-300 float-animation glow-on-hover">
+            <i class="fas fa-comment-dots text-xl"></i>
+        </button>
+    </div>
+
+    <script>
+        // Animasi counter
+        const counters = document.querySelectorAll('.counter');
+        const speed = 200;
+        
+        function animateCounters() {
+            counters.forEach(counter => {
+                const target = +counter.getAttribute('data-target');
+                const count = +counter.innerText;
+                const increment = target / speed;
+                
+                if (count < target) {
+                    counter.innerText = Math.ceil(count + increment);
+                    setTimeout(animateCounters, 1);
+                } else {
+                    counter.innerText = target;
+                }
+            });
+        }
+        
+        // Testimonial slider
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('#testimonial-slider > div');
+        const totalSlides = slides.length;
+        const slider = document.getElementById('testimonial-slider');
+        
+        document.getElementById('next-testimonial').addEventListener('click', () => {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateSlider();
+        });
+        
+        document.getElementById('prev-testimonial').addEventListener('click', () => {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            updateSlider();
+        });
+        
+        function updateSlider() {
+            const offset = -currentSlide * 100;
+            slider.style.transform = `translateX(${offset}%)`;
+        }
+        
+        // Auto slide testimonials
+        setInterval(() => {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateSlider();
+        }, 5000);
+        
+        // Back to top button
+        const backToTopButton = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('opacity-0', 'invisible', 'translate-y-4');
+                backToTopButton.classList.add('opacity-100', 'visible', 'translate-y-0');
+            } else {
+                backToTopButton.classList.remove('opacity-100', 'visible', 'translate-y-0');
+                backToTopButton.classList.add('opacity-0', 'invisible', 'translate-y-4');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Mobile menu toggle
+        const mobileMenuButton = document.querySelector('.mobile-menu-button');
+        // Anda bisa menambahkan fungsi untuk mobile menu di sini
+        
+        // Trigger animations when scrolling
+        const fadeElements = document.querySelectorAll('.fade-in-animation');
+        
+        function checkScroll() {
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementTop < windowHeight - 100) {
+                    element.style.opacity = 1;
+                }
+            });
+        }
+        
+        // Initialize
+        window.addEventListener('load', () => {
+            animateCounters();
+            checkScroll();
+        });
+        
+        window.addEventListener('scroll', checkScroll);
+    </script>
+</body>
+</html>
